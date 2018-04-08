@@ -1,0 +1,22 @@
+version: '3'
+services:
+  node_1:
+    build: .
+    command: node discovery.js node_2 node_3 node_4
+    environment:
+      HOSTNAME: node_1
+  node_2:
+    build: .
+    command: node discovery.js node_3
+    environment:
+      HOSTNAME: node_2
+  node_3:
+    build: .
+    command: node discovery.js node_4
+    environment:
+      HOSTNAME: node_3
+  node_4:
+    build: .
+    command: node discovery.js node_1
+    environment:
+      HOSTNAME: node_4
